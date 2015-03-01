@@ -1,4 +1,4 @@
-minetest.register_node("mydoors:wood_red", {
+minetest.register_node("my_castle_doors:wood_red", {
 	description = "Red Stained Wood",
 	drawtype = "normal",
 	paramtype = "light",
@@ -7,7 +7,7 @@ minetest.register_node("mydoors:wood_red", {
 	groups = {cracky = 2, choppy = 2},
 
 })
-minetest.register_node("mydoors:wood_grey", {
+minetest.register_node("my_castle_doors:wood_grey", {
 	description = "Grey Stained Wood",
 	drawtype = "normal",
 	paramtype = "light",
@@ -16,7 +16,7 @@ minetest.register_node("mydoors:wood_grey", {
 	groups = {cracky = 2, choppy = 2},
 
 })
-minetest.register_node("mydoors:wood_dark_grey", {
+minetest.register_node("my_castle_doors:wood_dark_grey", {
 	description = "Dark Grey Stained Wood",
 	drawtype = "normal",
 	paramtype = "light",
@@ -25,7 +25,7 @@ minetest.register_node("mydoors:wood_dark_grey", {
 	groups = {cracky = 2, choppy = 2},
 
 })
-minetest.register_node("mydoors:wood_brown", {
+minetest.register_node("my_castle_doors:wood_brown", {
 	description = "Brown Stained Wood",
 	drawtype = "normal",
 	paramtype = "light",
@@ -34,7 +34,7 @@ minetest.register_node("mydoors:wood_brown", {
 	groups = {cracky = 2, choppy = 2},
 
 })
-minetest.register_node("mydoors:wood_white", {
+minetest.register_node("my_castle_doors:wood_white", {
 	description = "White Stained Wood",
 	drawtype = "normal",
 	paramtype = "light",
@@ -43,7 +43,7 @@ minetest.register_node("mydoors:wood_white", {
 	groups = {cracky = 2, choppy = 2},
 
 })
-minetest.register_node("mydoors:wood_clear", {
+minetest.register_node("my_castle_doors:wood_clear", {
 	description = "Clear Stained Wood",
 	drawtype = "normal",
 	paramtype = "light",
@@ -56,7 +56,7 @@ minetest.register_node("mydoors:wood_clear", {
 -- Crafts
 
 minetest.register_craft({
-	output = "mydoors:wood_red 1",
+	output = "my_castle_doors:wood_red 1",
 	recipe = {
 		{"default:wood", "", ""},
 		{"dye:red", "", ""},
@@ -64,7 +64,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "mydoors:wood_grey 1",
+	output = "my_castle_doors:wood_grey 1",
 	recipe = {
 		{"default:wood", "", ""},
 		{"dye:grey", "", ""},
@@ -72,7 +72,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "mydoors:wood_dark_grey 1",
+	output = "my_castle_doors:wood_dark_grey 1",
 	recipe = {
 		{"default:wood", "", ""},
 		{"dye:dark_grey", "", ""},
@@ -80,7 +80,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "mydoors:wood_brown 1",
+	output = "my_castle_doors:wood_brown 1",
 	recipe = {
 		{"default:wood", "", ""},
 		{"dye:brown", "", ""},
@@ -88,7 +88,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "mydoors:wood_white 1",
+	output = "my_castle_doors:wood_white 1",
 	recipe = {
 		{"default:wood", "", ""},
 		{"dye:white", "", ""},
@@ -96,7 +96,7 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "mydoors:wood_clear 1",
+	output = "my_castle_doors:wood_clear 1",
 	recipe = {
 		{"default:wood", "", ""},
 		{"default:glass", "", ""},
