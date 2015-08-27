@@ -1,6 +1,6 @@
 local cdoor_list = {   --Number , Description , Inven Image , Image
 	{ "1" , "Castle Door 1" , "door1", "door1"},
-	{ "2" , "Castle Door 2" , "door2" , "door2"},	
+	{ "2" , "Castle Door 2" , "door2" , "door2"},
 --	{ "3", "Castle Door 3" , "door3" , "door3"},
 --	{ "4", "Castle Door 4" , "door4" , "door4"},
 --	{ "5", "Castle Door 5" , "door5" , "door5"},

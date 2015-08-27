@@ -1,6 +1,6 @@
 local fdoor_list = {   --Number , Description , Inven Image , Image
 --	{ "1" , "Fancy Door 1" , "door1" , "door1"},
-	{ "2" , "Fancy Door 2" , "door2" , "door2"},	
+	{ "2" , "Fancy Door 2" , "door2" , "door2"},
 	{ "3" , "Fancy Door 3" , "door3" , "door3"},
 }
 
