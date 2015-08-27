@@ -2,7 +2,8 @@ local cdoor_list = {   --Number , Description , Inven Image , Image
 	{ "1", "Bronze Door" , "bronze", "bronze_ingot"},
 	{ "2", "Copper Door" , "copper", "copper_ingot"},
 	{ "3", "Gold Door" , "gold", "gold_ingot"},
-	{ "4", "Diamond Door" , "diamond", "diamond"},	
+	{ "4", "Diamond Door" , "diamond", "diamond"},		
+	{ "5", "Mese Door" , "mese", "mese_crystal"},
 }
 
 
