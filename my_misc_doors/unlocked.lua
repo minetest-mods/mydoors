@@ -59,3 +59,19 @@ minetest.register_craft({
 		{"default:cobble", "default:cobble", ""}
 	}
 })
+minetest.register_craft({
+	output = "my_misc_doors:door5 1",
+	recipe = {
+		{"my_door_wood:wood_white", "wool:red", ""},
+		{"my_door_wood:wood_white", "my_door_wood:wood_white", ""},
+		{"my_door_wood:wood_white", "wool:red", ""}
+	}
+})
+minetest.register_craft({
+	output = "my_misc_doors:door6 1",
+	recipe = {
+		{"default:steel_ingot", "default:iron_lump", ""},
+		{"default:steel_ingot", "default:iron_lump", ""},
+		{"default:steel_ingot", "default:iron_lump", ""}
+	}
+})

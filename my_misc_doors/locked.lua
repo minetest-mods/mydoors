@@ -3,7 +3,7 @@ local mdoor_list = {   --Number , Description , Inven Image , Image
 --	{ "2" , "Misc Door 2" , "door2" , "door2"},	
 	{ "3" , "Misc Door 3" , "door3" , "door3"},
 	{ "4" , "Misc Door 4" , "door4" , "door4"},
-	{ "5" , "Misc Door 5" , "door5" , "door5"},
+--	{ "5" , "Misc Door 5" , "door5" , "door5"},
 	{ "6" , "Misc Door 6" , "door6" , "door6"},
 }
 
@@ -60,3 +60,22 @@ minetest.register_craft({
 		{"default:cobble", "default:cobble", ""}
 	}
 })
+minetest.register_craft({
+	output = "my_misc_doors:door5_locked 1",
+	recipe = {
+		{"my_door_wood:wood_white", "wool:red", ""},
+		{"my_door_wood:wood_white", "my_door_wood:wood_white", "default:steel_ingot"},
+		{"my_door_wood:wood_white", "wool:red", ""}
+	}
+})
+minetest.register_craft({
+	output = "my_misc_doors:door6_locked 1",
+	recipe = {
+		{"default:steel_ingot", "default:iron_lump", ""},
+		{"default:steel_ingot", "default:iron_lump", "default:steel_ingot"},
+		{"default:steel_ingot", "default:iron_lump", ""}
+	}
+})
+
+
+

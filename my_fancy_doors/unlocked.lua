@@ -49,4 +49,12 @@ minetest.register_craft({
 		{"my_door_wood:wood_white", "default:glass", ""}
 	}
 })
+minetest.register_craft({
+	output = "my_fancy_doors:door4 1",
+	recipe = {
+		{"my_door_wood:wood_red", "my_door_wood:wood_dark_grey", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_dark_grey", ""}
+	}
+})
 

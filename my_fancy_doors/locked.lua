@@ -1,7 +1,8 @@
 local fdoor_list = {   --Number , Description , Inven Image , Image
 	{ "1" , "Fancy Door 1" , "door1" , "door1"},
 --	{ "2" , "Fancy Door 2" , "door2" , "door2"},	
---	{ "3" , "Fancy Door 3" , "door3" , "door3"},
+--	{ "3" , "Fancy Door 3" , "door3" , "door3"},	
+	{ "4" , "Fancy Door 4" , "door4" , "door4"},
 }
 
 
@@ -49,4 +50,15 @@ minetest.register_craft({
 		{"my_door_wood:wood_white", "default:glass", ""}
 	}
 })
+minetest.register_craft({
+	output = "my_fancy_doors:door4_locked 1",
+	recipe = {
+		{"my_door_wood:wood_red", "my_door_wood:wood_dark_grey", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", "default:steel_ingot"},
+		{"my_door_wood:wood_red", "my_door_wood:wood_dark_grey", ""}
+	}
+})
+
+
+
 

@@ -11,6 +11,7 @@ local cdoor_list = {   --Number , Description , Inven Image , Image
 	{ "10", "Castle Door 10" , "door10" , "door10"},
 	{ "11", "Castle Door 11" , "door11" , "door11"},
 	{ "12", "Castle Door 12" , "door12" , "door12"},
+	{ "13", "Castle Door 13" , "door13" , "door13"},
 }
 
 
@@ -131,6 +132,13 @@ minetest.register_craft({
 		{"my_door_wood:wood_brown", "my_door_wood:wood_brown", ""}
 	}
 })
-
+minetest.register_craft({
+	output = "my_castle_doors:door13 1",
+	recipe = {
+		{"my_door_wood:wood_brown", "my_door_wood:wood_brown", "default:steel_ingot"},
+		{"my_door_wood:wood_brown", "my_door_wood:wood_brown", ""},
+		{"my_door_wood:wood_brown", "my_door_wood:wood_brown", "default:steel_ingot"}
+	}
+})
 
 
