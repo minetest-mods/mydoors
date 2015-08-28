@@ -5,7 +5,6 @@ local door_wood = { -- color, desc, image
 	{"brown", "Brown Stained", "brown"},
 	{"white", "White Stained", "white"},
 	{"yellow", "Clear Stained", "yellow"},
-	{"black", "Black", "black"},
 }
 for i in ipairs(door_wood) do
 	local color = door_wood[i][1]
