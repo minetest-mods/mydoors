@@ -1,7 +1,12 @@
 local fdoor_list = {   --Number , Description , Inven Image , Image
 --	{ "1" , "Fancy Door 1" , "door1" , "door1"},
-	{ "2" , "Fancy Door 2" , "door2" , "door2"},
-	{ "3" , "Fancy Door 3" , "door3" , "door3"},
+	{ "2" , "Fancy Door 2" , "door2" , "door2"},	
+	{ "3" , "Fancy Door 3" , "door3" , "door3"},	
+--	{ "4" , "Fancy Door 4" , "door4" , "door4"},	
+--	{ "5" , "Fancy Door 5" , "door5" , "door5"},	
+--	{ "6" , "Fancy Door 6" , "door6" , "door6"},	
+--	{ "7" , "Fancy Door 7" , "door7" , "door7"},	
+--	{ "8" , "Fancy Door 8" , "door8" , "door8"},
 }
 
 
