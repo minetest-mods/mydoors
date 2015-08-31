@@ -2,7 +2,7 @@ local doorcolors = {"white","red","black"}
 for i = 1,#doorcolors do
 local col = doorcolors[i]
 
-minetest.register_node("my_nodebox_doors:door1a_"..col, {
+minetest.register_node("my_future_doors:door1a_"..col, {
 	description = "Door 1a",
 	tiles = {
 		"myndoors_door1_"..col..".png",
@@ -53,21 +53,21 @@ on_place = function(itemstack, placer, pointed_thing)
 end,
 after_place_node = function(pos, placer, itemstack, pointed_thing)
 	local node = minetest.get_node(pos)
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_nodebox_doors:door1b_"..col,param2=node.param2})
+	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_future_doors:door1b_"..col,param2=node.param2})
 end,
 after_destruct = function(pos, oldnode)
 	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})
 end,
 on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 	local timer = minetest.get_node_timer(pos)
-	if node.name == "my_nodebox_doors:door1a_"..col then
-	   minetest.set_node(pos,{name="my_nodebox_doors:door1c_"..col,param2=node.param2})
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_nodebox_doors:door1d_"..col,param2=node.param2})
+	if node.name == "my_future_doors:door1a_"..col then
+	   minetest.set_node(pos,{name="my_future_doors:door1c_"..col,param2=node.param2})
+	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_future_doors:door1d_"..col,param2=node.param2})
 	   timer:start(3)
 	end
 end,
 })
-minetest.register_node("my_nodebox_doors:door1b_"..col, {
+minetest.register_node("my_future_doors:door1b_"..col, {
 	tiles = {
 		"myndoors_door1_"..col..".png",
 		"myndoors_door1_"..col..".png",
@@ -101,7 +101,7 @@ minetest.register_node("my_nodebox_doors:door1b_"..col, {
 			{-0.5, -0.5, -0.5, -0.5, -0.5, -0.5}, 
 		}
 	},
-})minetest.register_node("my_nodebox_doors:door1c_"..col, {
+})minetest.register_node("my_future_doors:door1c_"..col, {
 	tiles = {
 		"myndoors_door1_"..col..".png",
 		"myndoors_door1_"..col..".png",
@@ -134,18 +134,18 @@ minetest.register_node("my_nodebox_doors:door1b_"..col, {
 		}
 	},
 after_place_node = function(pos, placer, itemstack, pointed_thing)
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_nodebox_doors:door1d_"..col,param2=nodeu.param2})
+	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_future_doors:door1d_"..col,param2=nodeu.param2})
 end,
 after_destruct = function(pos, oldnode)
 	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})
 end,
 on_timer = function(pos, elapsed)
 	local node = minetest.get_node(pos)
-	   minetest.set_node(pos,{name="my_nodebox_doors:door1a_"..col,param2=node.param2})
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_nodebox_doors:door1b_"..col,param2=node.param2})
+	   minetest.set_node(pos,{name="my_future_doors:door1a_"..col,param2=node.param2})
+	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_future_doors:door1b_"..col,param2=node.param2})
 end,
 })
-minetest.register_node("my_nodebox_doors:door1d_"..col, {
+minetest.register_node("my_future_doors:door1d_"..col, {
 	tiles = {
 		"myndoors_door1_"..col..".png",
 		"myndoors_door1_"..col..".png",
@@ -180,7 +180,7 @@ minetest.register_node("my_nodebox_doors:door1d_"..col, {
 	},
 })
 minetest.register_craft({
-	output = "my_nodebox_doors:door1a_"..col.." 1",
+	output = "my_future_doors:door1a_"..col.." 1",
 	recipe = {
 		{"my_door_wood:wood_"..col, "wool:"..col, "my_door_wood:wood_"..col},
 		{"wool:"..col, "my_door_wood:wood_"..col, "wool:"..col},
