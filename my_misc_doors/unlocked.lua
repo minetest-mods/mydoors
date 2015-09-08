@@ -1,6 +1,6 @@
 local mdoor_list = {   --Number , Description , Inven Image , Image
 	{ "1" , "Misc Door 1" , "door1" , "door1"},
-	{ "2" , "Misc Door 2" , "door2" , "door2"},
+	{ "2" , "Misc Door 2" , "door2" , "door2"},	
 --	{ "3" , "Misc Door 3" , "door3" , "door3"},
 --	{ "4" , "Misc Door 4" , "door4" , "door4"},
 	{ "5" , "Misc Door 5" , "door5" , "door5"},
