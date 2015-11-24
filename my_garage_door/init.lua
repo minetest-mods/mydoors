@@ -66,6 +66,7 @@ minetest.register_node("my_garage_door:garage_door_top", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2= "facedir",
+	drop = "",
 	groups = {cracky=3},
 	node_box = {
 		type = "fixed",
@@ -86,6 +87,7 @@ minetest.register_node("my_garage_door:garage_door_open", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2= "facedir",
+	drop = "my_garage_door:garage_door",
 	groups = {cracky=3},
 	node_box = {
 		type = "fixed",
@@ -134,6 +136,7 @@ minetest.register_node("my_garage_door:garage_door_open2", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2= "facedir",
+	drop = "",
 	groups = {cracky=3},
 	node_box = {
 		type = "fixed",
