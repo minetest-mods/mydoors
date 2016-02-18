@@ -17,7 +17,7 @@ for i in ipairs(hdoor_list) do
 	local dimg = hdoor_list[i][3]
 
 
-doors.register_door("my_hidden_doors:hidden_door"..img, {
+mdoors.register_door("my_hidden_doors:hidden_door"..img, {
 	description = desc.." Locked",
 	inventory_image = "mydoors_"..img.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},
@@ -27,7 +27,7 @@ doors.register_door("my_hidden_doors:hidden_door"..img, {
 })
 
 end
-doors.register_door("my_hidden_doors:hidden_door_grey", {
+mdoors.register_door("my_hidden_doors:hidden_door_grey", {
 	description = "Grey Door Locked",
 	inventory_image = "mydoors_grey_inv.png",
 	groups = {choppy=2,cracky=2,door=1},

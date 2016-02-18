@@ -12,7 +12,7 @@ for i in ipairs(cdoor_list) do
 	local lock = cdoor_list[i][5]
 
 
-doors.register_door("my_cottage_doors:door"..num, {
+mdoors.register_door("my_cottage_doors:door"..num, {
 	description = desc.." Locked",
 	inventory_image = "mycdoors_"..inv.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},

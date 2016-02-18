@@ -10,7 +10,7 @@ for i in ipairs(cdoor_list) do
 	local inv = cdoor_list[i][3]
 	local img = cdoor_list[i][4]
 
-doors.register_door("my_old_doors:door"..num, {
+mdoors.register_door("my_old_doors:door"..num, {
 	description = desc,
 	inventory_image = "mydoors_"..inv.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},

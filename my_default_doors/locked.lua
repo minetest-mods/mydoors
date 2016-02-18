@@ -14,7 +14,7 @@ for i in ipairs(cdoor_list) do
 	local itm = cdoor_list[i][4]
 
 
-doors.register_door("my_default_doors:door"..num.."_locked", {
+mdoors.register_door("my_default_doors:door"..num.."_locked", {
 	description = desc.." Locked",
 	inventory_image = "mydoors_"..img.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},

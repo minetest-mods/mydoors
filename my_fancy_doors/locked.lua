@@ -17,7 +17,7 @@ for i in ipairs(fdoor_list) do
 	local img = fdoor_list[i][4]
 
 
-doors.register_door("my_fancy_doors:door"..num.."_locked", {
+mdoors.register_door("my_fancy_doors:door"..num.."_locked", {
 	description = desc.." Locked",
 	inventory_image = "myfdoors_"..inv.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},

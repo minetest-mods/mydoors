@@ -1,4 +1,4 @@
 default
-doors
+mdoors
 my_door_wood
 wool
