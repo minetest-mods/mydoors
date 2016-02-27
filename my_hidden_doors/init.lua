@@ -17,23 +17,22 @@ for i in ipairs(hdoor_list) do
 	local dimg = hdoor_list[i][3]
 
 
-mdoors.register_door("my_hidden_doors:hidden_door"..img, {
+doors.register_door("my_hidden_doors:hidden_door"..img, {
 	description = desc.." Locked",
 	inventory_image = "mydoors_"..img.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},
-	tiles_bottom = {dimg..".png^[transformFX", "mydoors_"..img.."_edge.png"},
-	tiles_top = {dimg..".png^[transformFX", "mydoors_"..img.."_edge.png"},
 	only_placer_can_open = false,
+	tiles = {{ name = "mydoors_"..img..".png", backface_culling = true }},
+	protected = false,
 })
 
 end
-mdoors.register_door("my_hidden_doors:hidden_door_grey", {
+doors.register_door("my_hidden_doors:hidden_door_grey", {
 	description = "Grey Door Locked",
 	inventory_image = "mydoors_grey_inv.png",
 	groups = {choppy=2,cracky=2,door=1},
-	tiles_bottom = {"mydoors_grey_bottom.png^[transformFX", "mydoors_grey_edge.png"},
-	tiles_top = {"mydoors_grey_top.png^[transformFX", "mydoors_grey_edge.png"},
-	only_placer_can_open = false,
+	tiles = {{ name = "mydoors_grey.png", backface_culling = true }},
+	protected = false,
 })
 -- Crafts
 

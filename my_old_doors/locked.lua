@@ -1,23 +1,21 @@
 local cdoor_list = {   --Number , Description , Inven Image , Image
-	{ "1", "Old Door 1" , "old1", "old1"},
-	{ "2", "Old Door 2" , "old2" , "old2"},
-	{ "3", "Old Door 3" , "old3" , "old3"},
-	{ "4", "Old Door 4" , "old4" , "old4"},	
+	{ "1", "Old Door 1" , "old1"},
+	{ "2", "Old Door 2" , "old2"},
+	{ "3", "Old Door 3" , "old3"},
+	{ "4", "Old Door 4" , "old4"},	
 }
 for i in ipairs(cdoor_list) do
 	local num = cdoor_list[i][1]
 	local desc = cdoor_list[i][2]
-	local inv = cdoor_list[i][3]
-	local img = cdoor_list[i][4]
+	local img = cdoor_list[i][3]
 
 
-mdoors.register_door("my_old_doors:door"..num.."_locked", {
+doors.register_door("my_old_doors:door"..num.."_locked", {
 	description = desc.." Locked",
-	inventory_image = "mydoors_"..inv.."_inv.png",
+	inventory_image = "mydoors_"..img.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},
-	tiles_bottom = {"mydoors_"..img.."_bottom.png", "mydoors_"..img.."_edge.png"},
-	tiles_top = {"mydoors_"..img.."_top.png", "mydoors_"..img.."_edge.png"},
-	only_placer_can_open = true,
+	tiles = {{ name = "mydoors_"..img..".png", backface_culling = true }},
+	protected = true,
 })
 end
 
