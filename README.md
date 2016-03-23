@@ -6,4 +6,4 @@ It has everything from old fashion doors to futuristic sliding doors.
 
 Forum - https://forum.minetest.net/viewtopic.php?f=11&t=10626
 
-Licence - WTFPL
+Licence - DWYWPL
