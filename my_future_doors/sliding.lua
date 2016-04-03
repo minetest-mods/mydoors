@@ -4,6 +4,8 @@ local doors = {
 	{"my_future_doors:door4a","my_future_doors:door4b","my_future_doors:door4c","my_future_doors:door4d","4","Dark"},
 	{"my_future_doors:door6a","my_future_doors:door6b","my_future_doors:door6c","my_future_doors:door6d","6","Points"},
 	{"my_future_doors:door7a","my_future_doors:door7b","my_future_doors:door7c","my_future_doors:door7d","7","Snow Flake"},
+	{"my_future_doors:door8a","my_future_doors:door8b","my_future_doors:door8c","my_future_doors:door8d","8","Blue Steel"},
+	{"my_future_doors:door9a","my_future_doors:door9b","my_future_doors:door9c","my_future_doors:door9d","9","Tan Steel"},
 	}
 for i in ipairs (doors) do
 local doora = doors[i][1]
