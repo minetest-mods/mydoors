@@ -7,6 +7,30 @@ local doors = {
 	{"my_future_doors:door8a","my_future_doors:door8b","my_future_doors:door8c","my_future_doors:door8d","8","Blue Steel"},
 	{"my_future_doors:door9a","my_future_doors:door9b","my_future_doors:door9c","my_future_doors:door9d","9","Tan Steel"},
 	}
+	
+local recipes = {
+	{{"default:steel_ingot", "default:steelblock", ""},
+		{"default:steel_ingot", "default:steel_ingot", ""},
+		{"default:steelblock", "default:steel_ingot", ""}},
+	{{"default:steel_ingot","default:steel_ingot", ""},
+		{"default:steel_ingot", "default:steel_ingot", ""},
+		{"default:steelblock", "default:steelblock", ""}},
+	{{"default:steel_ingot","default:steel_ingot", ""},
+		{"default:steel_ingot", "default:steel_ingot", "dye:black"},
+		{"default:steelblock", "default:steelblock", ""}},
+	{{"default:steel_ingot","default:steel_ingot", ""},
+		{"default:steelblock", "default:steelblock", ""},
+		{"default:steel_ingot", "default:steel_ingot", ""}},
+	{{"default:steel_ingot", "default:steelblock", ""},
+		{"default:steel_ingot", "default:steel_ingot", ""},
+		{ "default:steel_ingot", "default:steelblock",""}},
+	{{"default:steel_ingot", "default:steelblock", ""},
+		{"default:steel_ingot", "default:steel_ingot", "dye:blue"},
+		{ "default:steel_ingot", "default:steelblock",""}},
+	{{"default:steel_ingot", "default:steelblock", ""},
+		{"default:steel_ingot", "default:steel_ingot", "dye:brown"},
+		{ "default:steel_ingot", "default:steelblock",""}},
+}	
 for i in ipairs (doors) do
 local doora = doors[i][1]
 local doorb = doors[i][2]
@@ -14,6 +38,7 @@ local doorc = doors[i][3]
 local doord = doors[i][4]
 local num = doors[i][5]
 local des = doors[i][6]
+local recipe = recipes[i]
 
 function onplace(itemstack, placer, pointed_thing)
 	local pos1 = pointed_thing.above
@@ -52,6 +77,8 @@ function onplace(itemstack, placer, pointed_thing)
 				minetest.set_node(pt, {name=doora, param2=p2})
 				minetest.set_node(pt2, {name=doorb, param2=p2})
 			end
+		itemstack: take_item()
+		return itemstack	
 end
 
 function afterdestruct(pos, oldnode)
@@ -237,11 +264,8 @@ minetest.register_node(doord, {
 	},
 })
 minetest.register_craft({
-	output = "my_future_doors:door"..num.."a 1",
-	recipe = {
-		{"default:steel_ingot", "default:steelblock", ""},
-		{"default:steel_ingot", "default:steel_ingot", ""},
-		{"default:steelblock", "default:steel_ingot", ""}
-	}
+	output = "my_future_doors:door"..num.."a 2",
+	recipe = recipe
 })
 end
+
