@@ -1,6 +1,6 @@
 local hdoor_list = {   --Number , Description , default image
 	{ "cobble" , "Hidden Cobble Door", "default_cobble"},
-	{ "stone" , "Hidden Stone Door", "default_stone"},	
+	{ "stone" , "Hidden Stone Door", "default_stone"},
 	{ "wood", "Hidden Wood Door", "default_wood"},
 	{ "stone_brick", "Hidden Stone Brick Door", "default_stone_brick"},
 	{ "brick", "Hidden Brick Door", "default_brick"},
@@ -116,5 +116,3 @@ minetest.register_craft({
 		{"my_door_wood:wood_dark_grey", "my_door_wood:wood_dark_grey", ""}
 	}
 })
-
-

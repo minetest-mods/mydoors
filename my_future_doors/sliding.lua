@@ -7,7 +7,7 @@ local doors = {
 	{"my_future_doors:door8a","my_future_doors:door8b","my_future_doors:door8c","my_future_doors:door8d","8","Blue Steel"},
 	{"my_future_doors:door9a","my_future_doors:door9b","my_future_doors:door9c","my_future_doors:door9d","9","Tan Steel"},
 	}
-	
+
 local recipes = {
 	{{"default:steel_ingot", "default:steelblock", ""},
 		{"default:steel_ingot", "default:steel_ingot", ""},
@@ -30,7 +30,7 @@ local recipes = {
 	{{"default:steel_ingot", "default:steelblock", ""},
 		{"default:steel_ingot", "default:steel_ingot", "dye:brown"},
 		{ "default:steel_ingot", "default:steelblock",""}},
-}	
+}
 for i in ipairs (doors) do
 local doora = doors[i][1]
 local doorb = doors[i][2]
@@ -49,7 +49,7 @@ function onplace(itemstack, placer, pointed_thing)
 	not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
 	not placer or
 	not placer:is_player() then
-	return 
+	return
 	end
 			local pt = pointed_thing.above
 			local pt2 = {x=pt.x, y=pt.y, z=pt.z}
@@ -259,7 +259,7 @@ minetest.register_node(doord, {
 	selection_box = {
 		type = "fixed",
 		fixed = {
-			{0, 0, 0, 0, 0, 0}, 
+			{0, 0, 0, 0, 0, 0},
 		}
 	},
 })

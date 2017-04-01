@@ -20,7 +20,7 @@ function onplace(itemstack, placer, pointed_thing)
 	not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
 	not placer or
 	not placer:is_player() then
-	return 
+	return
 	end
 			local pt = pointed_thing.above
 			local pt2 = {x=pt.x, y=pt.y, z=pt.z}
@@ -71,7 +71,7 @@ function rightclick(pos, node, player, itemstack, pointed_thing)
 	local par2 = par + 2
 		if par2 == 4 then par2 = 0 end
 		if par2 == 5 then par2 = 1 end
-		
+
 	local a = minetest.get_node({x=pos.x, y=pos.y, z=pos.z-1})
 	local b = minetest.get_node({x=pos.x, y=pos.y, z=pos.z+1})
 	local c = minetest.get_node({x=pos.x+1, y=pos.y, z=pos.z})
@@ -100,7 +100,7 @@ function rightclick(pos, node, player, itemstack, pointed_thing)
 		minetest.set_node({x=pos.x-1, y=pos.y, z=pos.z}, {name=doorc, param2=d.param2})
 		minetest.set_node({x=pos.x-1,y=pos.y+1,z=pos.z}, {name=doord, param2=d.param2})
 		end
-		
+
 	     if a.name == doora.."2" then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z-1}, {name=doorc.."2", param2=a.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z-1}, {name=doord.."2", param2=a.param2})
@@ -133,7 +133,7 @@ function rightclick(pos, node, player, itemstack, pointed_thing)
 		minetest.set_node({x=pos.x-1, y=pos.y, z=pos.z}, {name=doora, param2=d.param2})
 		minetest.set_node({x=pos.x-1,y=pos.y+1,z=pos.z}, {name=doorb, param2=d.param2})
 		end
-		
+
 	     if a.name == doorc.."2" then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z-1}, {name=doora.."2", param2=a.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z-1}, {name=doorb.."2", param2=a.param2})
@@ -178,15 +178,15 @@ minetest.register_node(doora.."2", {
 		fixed = {
 			{0.375, -0.5, -0.1875, 0.5, 0.5, -0.0625},
 			{-0.5, -0.5, -0.1875, -0.375, 0.5, -0.0625},
-			
+
 			{-0.5, -0.5, -0.1875, 0.5, -0.375, -0.0625},
 			{-0.5, -0.5, -0.125, 0.5, 0.5, -0.145},
-			
-			{-0.625, 	-0.5, 	-0.0625,	 -0.5,	 0.5, 	0.0625},
-			{-1.5, 		-0.5, 	-0.0625, 	-1.375,  0.5, 	0.0625},
-			
-			{-1.5, 		-0.5, 	-0.0625, 	-0.5,   -0.375, 0.0625},
-			{-1.5, 		-0.5, 	 0, 		-0.5, 	 0.5, 	0.02},
+
+			{-0.625,	-0.5,	-0.0625,	 -0.5,	 0.5,	0.0625},
+			{-1.5,		-0.5,	-0.0625,	-1.375,  0.5,	0.0625},
+
+			{-1.5,		-0.5,	-0.0625,	-0.5,   -0.375, 0.0625},
+			{-1.5,		-0.5,	 0,		-0.5,	 0.5,	0.02},
 		}
 	},
 	selection_box = {type = "fixed",fixed = {{-1.5, -0.5, -0.0625, -0.5, 1.5, 0.0625},{-0.5, -0.5, -0.0625, 0.5, 1.5, -0.1875}}},
@@ -216,15 +216,15 @@ minetest.register_node(doorb.."2", {
 		fixed = {
 			{0.375, -0.5, -0.1875, 0.5, 0.5, -0.0625},
 			{-0.5, -0.5, -0.1875, -0.375, 0.5, -0.0625},
-			
+
 			{-0.5, 0.5, -0.1875, 0.5, 0.375, -0.0625},
 			{-0.5, -0.5, -0.125, 0.5, 0.5, -0.145},
-			
-			{-0.625, 	-0.5, 	-0.0625,	 -0.5,	 0.5, 	0.0625},
-			{-1.5, 		-0.5, 	-0.0625, 	-1.375,  0.5, 	0.0625},
-			
-			{-1.5, 		0.5, 	-0.0625, 	-0.5,   0.375, 0.0625},
-			{-1.5, 		-0.5, 	 0, 		-0.5, 	 0.5, 	0.02},
+
+			{-0.625,	-0.5,	-0.0625,	 -0.5,	 0.5,	0.0625},
+			{-1.5,		-0.5,	-0.0625,	-1.375,  0.5,	0.0625},
+
+			{-1.5,		0.5,	-0.0625,	-0.5,   0.375, 0.0625},
+			{-1.5,		-0.5,	 0,		-0.5,	 0.5,	0.02},
 		}
 	},
 	selection_box = {
@@ -253,15 +253,15 @@ minetest.register_node(doorb.."2", {
 		fixed = {
 			{-0.625, -0.5, -0.1875, -0.5, 0.5, -0.0625},
 			{-1.5, -0.5, -0.1875, -1.375, 0.5, -0.0625},
-			
+
 			{-1.5, -0.5, -0.1875, -0.5, -0.375, -0.0625},
 			{-1.5, -0.5, -0.125, -0.5, 0.5, -0.145},
-			
-			{-0.625, 	-0.5, 	-0.0625,	 -0.5,	 0.5, 	0.0625},
-			{-1.5, 		-0.5, 	-0.0625, 	-1.375,  0.5, 	0.0625},
-			
-			{-1.5, 		-0.5, 	-0.0625, 	-0.5,   -0.375, 0.0625},
-			{-1.5, 		-0.5, 	 0, 		-0.5, 	 0.5, 	0.02},
+
+			{-0.625,	-0.5,	-0.0625,	 -0.5,	 0.5,	0.0625},
+			{-1.5,		-0.5,	-0.0625,	-1.375,  0.5,	0.0625},
+
+			{-1.5,		-0.5,	-0.0625,	-0.5,   -0.375, 0.0625},
+			{-1.5,		-0.5,	 0,		-0.5,	 0.5,	0.02},
 		}
 	},
 	selection_box = {
@@ -293,21 +293,21 @@ minetest.register_node(doord.."2", {
 		fixed = {
 			{-0.625, -0.5, -0.1875, -0.5, 0.5, -0.0625},
 			{-1.5, -0.5, -0.1875, -1.375, 0.5, -0.0625},
-			
+
 			{-1.5, 0.5, -0.1875, -0.5, 0.375, -0.0625},
 			{-1.5, -0.5, -0.125, -0.5, 0.5, -0.145},
-			
-			{-0.625, 	-0.5, 	-0.0625,	 -0.5,	 0.5, 	0.0625},
-			{-1.5, 		-0.5, 	-0.0625, 	-1.375,  0.5, 	0.0625},
-			
-			{-1.5, 		0.5, 	-0.0625, 	-0.5,   0.375, 0.0625},
-			{-1.5, 		-0.5, 	 0, 		-0.5, 	 0.5, 	0.02},
+
+			{-0.625,	-0.5,	-0.0625,	 -0.5,	 0.5,	0.0625},
+			{-1.5,		-0.5,	-0.0625,	-1.375,  0.5,	0.0625},
+
+			{-1.5,		0.5,	-0.0625,	-0.5,   0.375, 0.0625},
+			{-1.5,		-0.5,	 0,		-0.5,	 0.5,	0.02},
 		}
 	},
 	selection_box = {
 		type = "fixed",
 		fixed = {
-			{0, 0, 0, 0, 0, 0}, 
+			{0, 0, 0, 0, 0, 0},
 		}
 	},
 })

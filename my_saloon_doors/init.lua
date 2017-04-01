@@ -51,7 +51,7 @@ on_place = function(itemstack, placer, pointed_thing)
 	not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
 	not placer or
 	not placer:is_player() then
-	return 
+	return
 	end
         return minetest.item_place(itemstack, placer, pointed_thing)
 end,

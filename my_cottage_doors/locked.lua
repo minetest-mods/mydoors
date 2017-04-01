@@ -1,6 +1,6 @@
 local cdoor_list = {   --Number , Description , Inven Image , Image
 	{"Cottage Door 1" , "door1"},
---	{"Cottage Door 2" , "door2"},	
+--	{"Cottage Door 2" , "door2"},
 }
 
 
@@ -37,7 +37,3 @@ minetest.register_craft({
 		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""}
 	}
 })
-
-
-
-

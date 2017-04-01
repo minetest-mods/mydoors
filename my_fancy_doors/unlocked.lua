@@ -1,11 +1,11 @@
 local fdoor_list = {   --Number , Description , Inven Image , Image
 --	{"Fancy Door 1" , "door1"},
-	{"Fancy Door 2" , "door2"},	
-	{"Fancy Door 3" , "door3"},	
---	{"Fancy Door 4" , "door4"},	
---	{"Fancy Door 5" , "door5"},	
---	{"Fancy Door 6" , "door6"},	
---	{"Fancy Door 7" , "door7"},	
+	{"Fancy Door 2" , "door2"},
+	{"Fancy Door 3" , "door3"},
+--	{"Fancy Door 4" , "door4"},
+--	{"Fancy Door 5" , "door5"},
+--	{"Fancy Door 6" , "door6"},
+--	{"Fancy Door 7" , "door7"},
 --	{"Fancy Door 8" , "door8"},
 }
 
@@ -59,4 +59,3 @@ minetest.register_craft({
 		{"my_door_wood:wood_red", "my_door_wood:wood_dark_grey", ""}
 	}
 })
-

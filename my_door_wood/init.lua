@@ -33,6 +33,3 @@ minetest.register_craft({
 	}
 })
 end
-
-
-

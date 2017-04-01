@@ -39,7 +39,7 @@ on_place = function(itemstack, placer, pointed_thing)
 	not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
 	not placer or
 	not placer:is_player() then
-	return 
+	return
 	end
 			local pt = pointed_thing.above
 			local pt2 = {x=pt.x, y=pt.y, z=pt.z}
@@ -215,7 +215,7 @@ minetest.register_node("my_misc_doors:door2d", {
 	selection_box = {
 		type = "fixed",
 		fixed = {
-			{0, 0, 0, 0, 0, 0}, 
+			{0, 0, 0, 0, 0, 0},
 		}
 	},
 })

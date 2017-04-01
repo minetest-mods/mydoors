@@ -136,5 +136,3 @@ minetest.register_craft({
 		{"my_door_wood:wood_brown", "my_door_wood:wood_brown", "default:steel_ingot"}
 	}
 })
-
-
