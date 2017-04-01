@@ -9,147 +9,129 @@ local doorb = doors[i][2]
 local doorc = doors[i][3]
 local doord = doors[i][4]
 local num = doors[i][5]
-local des = doors[i][6]
+--local des = doors[i][6]
 
 function onplace(itemstack, placer, pointed_thing)
 	local pos1 = pointed_thing.above
-	local pos2 = {x=pos1.x, y=pos1.y, z=pos1.z}
-	      pos2.y = pos2.y+1
+	local pos2 = {x=pos1.x, y=pos1.y + 1, z=pos1.z}
 	if
-	not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
-	not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
-	not placer or
-	not placer:is_player() then
-	return
+			not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
+			not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
+			not placer or not placer:is_player() then
+		return
 	end
-			local pt = pointed_thing.above
-			local pt2 = {x=pt.x, y=pt.y, z=pt.z}
-				pt2.y = pt2.y+1
-			local p2 = minetest.dir_to_facedir(placer:get_look_dir())
-			local pt3 = {x=pt.x, y=pt.y, z=pt.z}
-			local p4 = 0
-			local pa = {x=pt.x, y=pt.y, z=pt.z}
-			if p2 == 0 then
-				pt3.x = pt3.x-1
-				pa.x = pa.x+1
-				p4 = 2
-			elseif p2 == 1 then
-				pt3.z = pt3.z+1
-				pa.z = pa.z-1
-				p4 = 3
-			elseif p2 == 2 then
-				pt3.x = pt3.x+1
-				pa.x = pa.x-1
-				p4 = 0
-			elseif p2 == 3 then
-				pt3.z = pt3.z-1
-				pa.z = pa.z+1
-				p4 = 1
-			end
-			local pa = pt3
-			if minetest.get_node(pt3).name ~= "air" then
-				minetest.chat_send_player(placer:get_player_name(),"Not enough room")
-			   return
-			end
-			if minetest.get_node(pt3).name == doora then
-				minetest.set_node(pt, {name=doora.."2", param2=p2})
-				minetest.set_node(pt2, {name=doorb.."2", param2=p2})
-			else
-				minetest.set_node(pt, {name=doora.."2", param2=p2})
-				minetest.set_node(pt2, {name=doorb.."2", param2=p2})
-			end
+
+	local pt = pointed_thing.above
+	local pt2 = {x=pt.x, y=pt.y, z=pt.z}
+		pt2.y = pt2.y+1
+	local p2 = minetest.dir_to_facedir(placer:get_look_dir())
+	local pt3 = {x=pt.x, y=pt.y, z=pt.z}
+	if p2 == 0 then
+		pt3.x = pt3.x-1
+	elseif p2 == 1 then
+		pt3.z = pt3.z+1
+	elseif p2 == 2 then
+		pt3.x = pt3.x+1
+	elseif p2 == 3 then
+		pt3.z = pt3.z-1
+	end
+	if minetest.get_node(pt3).name ~= "air" then
+		minetest.chat_send_player(placer:get_player_name(),"Not enough room")
+		return
+	end
+	if minetest.get_node(pt3).name == doora then
+		minetest.set_node(pt, {name=doora.."2", param2=p2})
+		minetest.set_node(pt2, {name=doorb.."2", param2=p2})
+	else
+		minetest.set_node(pt, {name=doora.."2", param2=p2})
+		minetest.set_node(pt2, {name=doorb.."2", param2=p2})
+	end
 end
 
 function afterdestruct(pos, oldnode)
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})
+	minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})
 end
 
 function rightclick(pos, node, player, itemstack, pointed_thing)
-
-	local pos2 = minetest.find_node_near(pos, 1, {doora,doora.."2"})
-	local par = minetest.get_node(pos).param2
-	local par2 = par + 2
-		if par2 == 4 then par2 = 0 end
-		if par2 == 5 then par2 = 1 end
-
 	local a = minetest.get_node({x=pos.x, y=pos.y, z=pos.z-1})
 	local b = minetest.get_node({x=pos.x, y=pos.y, z=pos.z+1})
 	local c = minetest.get_node({x=pos.x+1, y=pos.y, z=pos.z})
 	local d = minetest.get_node({x=pos.x-1, y=pos.y, z=pos.z})
-		if node.name == doora.."2" then
+
+	if node.name == doora.."2" then
 		minetest.set_node(pos, {name=doorc.."2", param2=node.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z}, {name=doord.."2", param2=node.param2})
-		elseif node.name == doorc.."2" then
+	elseif node.name == doorc.."2" then
 		minetest.set_node(pos, {name=doora.."2", param2=node.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z}, {name=doorb.."2", param2=node.param2})
-		end
+	end
 
-	     if a.name == doora then
+	if a.name == doora then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z-1}, {name=doorc, param2=a.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z-1}, {name=doord, param2=a.param2})
-		end
-	     if b.name == doora then
+	end
+	if b.name == doora then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z+1}, {name=doorc, param2=b.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z+1}, {name=doord, param2=b.param2})
-		end
-	     if c.name == doora then
+	end
+	if c.name == doora then
 		minetest.set_node({x=pos.x+1, y=pos.y, z=pos.z}, {name=doorc, param2=c.param2})
 		minetest.set_node({x=pos.x+1,y=pos.y+1,z=pos.z}, {name=doord, param2=c.param2})
-		end
-	     if d.name == doora then
+	end
+	if d.name == doora then
 		minetest.set_node({x=pos.x-1, y=pos.y, z=pos.z}, {name=doorc, param2=d.param2})
 		minetest.set_node({x=pos.x-1,y=pos.y+1,z=pos.z}, {name=doord, param2=d.param2})
-		end
+	end
 
-	     if a.name == doora.."2" then
+	if a.name == doora.."2" then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z-1}, {name=doorc.."2", param2=a.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z-1}, {name=doord.."2", param2=a.param2})
-		end
-	     if b.name == doora.."2" then
+	end
+	if b.name == doora.."2" then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z+1}, {name=doorc.."2", param2=b.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z+1}, {name=doord.."2", param2=b.param2})
-		end
-	     if c.name == doora.."2" then
+	end
+	if c.name == doora.."2" then
 		minetest.set_node({x=pos.x+1, y=pos.y, z=pos.z}, {name=doorc.."2", param2=c.param2})
 		minetest.set_node({x=pos.x+1,y=pos.y+1,z=pos.z}, {name=doord.."2", param2=c.param2})
-		end
-	     if d.name == doora.."2" then
+	end
+	if d.name == doora.."2" then
 		minetest.set_node({x=pos.x-1, y=pos.y, z=pos.z}, {name=doorc.."2", param2=d.param2})
 		minetest.set_node({x=pos.x-1,y=pos.y+1,z=pos.z}, {name=doord.."2", param2=d.param2})
-		end
-	     if a.name == doorc then
+	end
+	if a.name == doorc then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z-1}, {name=doora, param2=a.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z-1}, {name=doorb, param2=a.param2})
-		end
-	     if b.name == doorc then
+	end
+	if b.name == doorc then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z+1}, {name=doora, param2=b.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z+1}, {name=doorb, param2=b.param2})
-		end
-	     if c.name == doorc then
+	end
+	if c.name == doorc then
 		minetest.set_node({x=pos.x+1, y=pos.y, z=pos.z}, {name=doora, param2=c.param2})
 		minetest.set_node({x=pos.x+1,y=pos.y+1,z=pos.z}, {name=doorb, param2=c.param2})
-		end
-	     if d.name == doorc then
+	end
+	if d.name == doorc then
 		minetest.set_node({x=pos.x-1, y=pos.y, z=pos.z}, {name=doora, param2=d.param2})
 		minetest.set_node({x=pos.x-1,y=pos.y+1,z=pos.z}, {name=doorb, param2=d.param2})
-		end
+	end
 
-	     if a.name == doorc.."2" then
+	if a.name == doorc.."2" then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z-1}, {name=doora.."2", param2=a.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z-1}, {name=doorb.."2", param2=a.param2})
-		end
-	     if b.name == doorc.."2" then
+	end
+	if b.name == doorc.."2" then
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z+1}, {name=doora.."2", param2=b.param2})
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z+1}, {name=doorb.."2", param2=b.param2})
-		end
-	     if c.name == doorc.."2" then
+	end
+	if c.name == doorc.."2" then
 		minetest.set_node({x=pos.x+1, y=pos.y, z=pos.z}, {name=doora.."2", param2=c.param2})
 		minetest.set_node({x=pos.x+1,y=pos.y+1,z=pos.z}, {name=doorb.."2", param2=c.param2})
-		end
-	     if d.name == doorc.."2" then
+	end
+	if d.name == doorc.."2" then
 		minetest.set_node({x=pos.x-1, y=pos.y, z=pos.z}, {name=doora.."2", param2=d.param2})
 		minetest.set_node({x=pos.x-1,y=pos.y+1,z=pos.z}, {name=doorb.."2", param2=d.param2})
-		end
+	end
 
 end
 

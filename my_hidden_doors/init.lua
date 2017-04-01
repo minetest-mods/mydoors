@@ -14,7 +14,7 @@ local hdoor_list = {   --Number , Description , default image
 for i in ipairs(hdoor_list) do
 	local img = hdoor_list[i][1]
 	local desc = hdoor_list[i][2]
-	local dimg = hdoor_list[i][3]
+	--local dimg = hdoor_list[i][3]
 
 
 doors.register_door("my_hidden_doors:hidden_door"..img, {

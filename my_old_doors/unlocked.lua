@@ -11,7 +11,7 @@ for i in ipairs(cdoor_list) do
 
 doors.register_door("my_old_doors:door"..num, {
 	description = desc,
-	inventory_image = "mydoors_"..inv.."_inv.png",
+	inventory_image = "mydoors_"..img.."_inv.png",
 	groups = {choppy=2,cracky=2,door=1},
 	tiles = {{ name = "mydoors_"..img..".png", backface_culling = true }},
 	protected = true,

@@ -37,12 +37,6 @@ end
 
 function rightclick(pos, node, player, itemstack, pointed_thing)
 
-	local pos2 = minetest.find_node_near(pos, 1, {doora,doora.."2"})
-	local par = minetest.get_node(pos).param2
-	local par2 = par + 2
-		if par2 == 4 then par2 = 0 end
-		if par2 == 5 then par2 = 1 end
-
 	local a = minetest.get_node({x=pos.x, y=pos.y, z=pos.z-1})
 	local b = minetest.get_node({x=pos.x, y=pos.y, z=pos.z+1})
 	local c = minetest.get_node({x=pos.x+1, y=pos.y, z=pos.z})
