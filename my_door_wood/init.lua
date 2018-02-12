@@ -22,6 +22,15 @@ minetest.register_node("my_door_wood:wood_"..color, {
 
 })
 
+if minetest.get_modpath("moreblocks") then
+stairsplus:register_all("my_door_wood", color, "my_door_wood:wood_"..color, {
+       description = desc.." Wood",
+       tiles = {"mydoors_"..img.."_wood.png"},
+       groups = {cracky = 2, choppy = 2},
+        sounds = default.node_sound_wood_defaults(),
+})
+end
+
 -- Crafts
 
 minetest.register_craft({
