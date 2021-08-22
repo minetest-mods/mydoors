@@ -156,7 +156,8 @@ minetest.register_node("my_misc_doors:door2c", {
 		}
 	},
 after_place_node = function(pos, placer, itemstack, pointed_thing)
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_misc_doors:door2d",param2=nodeu.param2})
+	local node = minetest.get_node(pos)
+	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="my_misc_doors:door2d",param2=node.param2})
 end,
 after_destruct = function(pos, oldnode)
 	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})

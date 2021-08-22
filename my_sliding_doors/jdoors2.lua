@@ -136,7 +136,8 @@ function rightclick(pos, node, player, itemstack, pointed_thing)
 end
 
 function afterplace(pos, placer, itemstack, pointed_thing)
-	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name=doord,param2=nodeu.param2})
+	local node = minetest.get_node(pos)
+	   minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name=doord,param2=node.param2})
 end
 
 
