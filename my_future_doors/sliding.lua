@@ -77,7 +77,10 @@ local function onplace(itemstack, placer, pointed_thing)
 				minetest.set_node(pt, {name=doora, param2=p2})
 				minetest.set_node(pt2, {name=doorb, param2=p2})
 			end
-		itemstack: take_item()
+
+		if not (minetest.settings:get_bool("creative_mode") or minetest.check_player_privs(placer:get_player_name(), {creative = true})) then
+			itemstack:take_item()
+		end
 		return itemstack
 end
 

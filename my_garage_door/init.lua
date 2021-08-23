@@ -30,6 +30,11 @@ minetest.register_node("my_garage_door:garage_door", {
 print(p2)
 		minetest.set_node(p, {name = "my_garage_door:garage_door",param2 = p2})
 		minetest.set_node({x=p.x,y=p.y+1,z=p.z}, {name = "my_garage_door:garage_door_top",param2 = p2})
+
+		if not (minetest.settings:get_bool("creative_mode") or minetest.check_player_privs(placer:get_player_name(), {creative = true})) then
+			itemstack:take_item()
+		end
+		return itemstack
 	end,
 	after_destruct = function(pos, oldnode)
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name = "air"})

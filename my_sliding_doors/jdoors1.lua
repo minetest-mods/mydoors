@@ -29,6 +29,11 @@ function onplace(itemstack, placer, pointed_thing)
 			minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z}, {name=doorb.."2",param2=par2})
 		end
 
+	if not (minetest.settings:get_bool("creative_mode") or minetest.check_player_privs(placer:get_player_name(), {creative = true})) then
+		itemstack:take_item()
+	end
+	return itemstack
+
 end
 
 function afterdestruct(pos, oldnode)
@@ -316,6 +321,11 @@ minetest.register_node("my_sliding_doors:jpanel"..num, {
 	else
 		return
 	end
+
+		if not (minetest.settings:get_bool("creative_mode") or minetest.check_player_privs(placer:get_player_name(), {creative = true})) then
+			itemstack:take_item()
+		end
+		return itemstack
 	end,
 	on_destruct = function(pos)
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})
@@ -397,6 +407,11 @@ minetest.register_node("my_sliding_doors:jpanel_corner_"..num, {
 	else
 		return
 	end
+
+		if not (minetest.settings:get_bool("creative_mode") or minetest.check_player_privs(placer:get_player_name(), {creative = true})) then
+			itemstack:take_item()
+		end
+		return itemstack
 	end,
 	on_destruct = function(pos)
 		minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z},{name="air"})

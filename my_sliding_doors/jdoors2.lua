@@ -46,6 +46,11 @@ function onplace(itemstack, placer, pointed_thing)
 		minetest.set_node(pt, {name=doora.."2", param2=p2})
 		minetest.set_node(pt2, {name=doorb.."2", param2=p2})
 	end
+
+	if not (minetest.settings:get_bool("creative_mode") or minetest.check_player_privs(placer:get_player_name(), {creative = true})) then
+		itemstack:take_item()
+	end
+	return itemstack
 end
 
 function afterdestruct(pos, oldnode)
