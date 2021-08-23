@@ -38,7 +38,7 @@ function onplace(itemstack, placer, pointed_thing)
 
 	local player_name = placer:get_player_name()
 	if minetest.is_protected(pt, player_name) then
-		minetest.record_protection_violation(pt2, player_name)
+		minetest.record_protection_violation(pt, player_name)
 		return
 	end
 	if minetest.is_protected(pt2, player_name) then

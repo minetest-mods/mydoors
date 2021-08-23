@@ -70,6 +70,25 @@ print(p2)
 		t1 = {x=pos.x-1,y=pos.y+1,z=pos.z}
 		t2 = {x=pos.x-2,y=pos.y+1,z=pos.z}
 		end
+
+		if
+		not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
+		not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to or
+		not player or
+		not player:is_player() then
+			return
+		end
+
+		local player_name = player:get_player_name()
+		if minetest.is_protected(t1, player_name) then
+			minetest.record_protection_violation(t1, player_name)
+			return
+		end
+		if minetest.is_protected(t2, player_name) then
+			minetest.record_protection_violation(t2, player_name)
+			return
+		end
+
 			minetest.set_node(t1,{name="my_garage_door:garage_door_open",param2=p2})
 			minetest.set_node(t2,{name="my_garage_door:garage_door_open2",param2=p2})
 			minetest.set_node(pos,{name="air"})
@@ -144,6 +163,25 @@ minetest.register_node("my_garage_door:garage_door_open", {
 		t2 = {x=pos.x+1,y=pos.y-1,z=pos.z}
 		t3 = {x=pos.x-1,y=pos.y,z=pos.z}
 		end
+
+		if
+		not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
+		not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to or
+		not player or
+		not player:is_player() then
+			return
+		end
+
+		local player_name = player:get_player_name()
+		if minetest.is_protected(t1, player_name) then
+			minetest.record_protection_violation(t1, player_name)
+			return
+		end
+		if minetest.is_protected(t2, player_name) then
+			minetest.record_protection_violation(t2, player_name)
+			return
+		end
+
 			minetest.set_node(t1,{name="my_garage_door:garage_door_top",param2=p2})
 			minetest.set_node(t2,{name="my_garage_door:garage_door",param2=p2})
 			minetest.set_node(pos,{name="air"})
