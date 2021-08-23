@@ -18,13 +18,15 @@ function onplace(itemstack, placer, pointed_thing)
 	local pos2 = minetest.find_node_near(pos1, 1, {doora})
 	local par = minetest.dir_to_facedir(placer:get_look_dir())
 	local par2 = par + 2
+	
+	if not placer or not placer:is_player() then
+		return
+	end
 
-	if
-	not minetest.registered_nodes[minetest.get_node(pos).name].buildable_to or
-	not minetest.registered_nodes[minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z}).name].buildable_to or
-	not placer or
-	not placer:is_player() then
-	return
+	if not minetest.registered_nodes[minetest.get_node(pos).name].buildable_to or
+	   not minetest.registered_nodes[minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z}).name].buildable_to then
+		minetest.chat_send_player(placer:get_player_name(), "Not enough room")
+		return
 	end
 
 	local player_name = placer:get_player_name()
@@ -328,13 +330,15 @@ minetest.register_node("my_sliding_doors:jpanel"..num, {
 	local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 	local pos = pointed_thing.above
 	local na = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
+	
+	if not placer or not placer:is_player() then
+		return
+	end
 
-	if
-	not minetest.registered_nodes[minetest.get_node(pos).name].buildable_to or
-	not minetest.registered_nodes[na.name].buildable_to or
-	not placer or
-	not placer:is_player() then
-	return
+	if not minetest.registered_nodes[minetest.get_node(pos).name].buildable_to or
+	   not minetest.registered_nodes[na.name].buildable_to then
+		minetest.chat_send_player(placer:get_player_name(), "Not enough room")
+		return
 	end
 
 	local player_name = placer:get_player_name()
@@ -428,13 +432,15 @@ minetest.register_node("my_sliding_doors:jpanel_corner_"..num, {
 	local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 	local pos = pointed_thing.above
 	local na = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
+	
+	if not placer or not placer:is_player() then
+		return
+	end
 
-	if
-	not minetest.registered_nodes[minetest.get_node(pos).name].buildable_to or
-	not minetest.registered_nodes[na.name].buildable_to or
-	not placer or
-	not placer:is_player() then
-	return
+	if not minetest.registered_nodes[minetest.get_node(pos).name].buildable_to or
+	   not minetest.registered_nodes[na.name].buildable_to then
+		minetest.chat_send_player(placer:get_player_name(), "Not enough room")
+		return
 	end
 
 	local player_name = placer:get_player_name()

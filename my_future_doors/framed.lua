@@ -42,12 +42,15 @@ on_place = function(itemstack, placer, pointed_thing)
 	local pos1 = pointed_thing.above
 	local pos2 = {x=pos1.x, y=pos1.y, z=pos1.z}
 	      pos2.y = pos2.y+1
-	if
-	not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
-	not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
-	not placer or
-	not placer:is_player() then
-	return
+	
+	if not placer or not placer:is_player() then
+		return
+	end
+
+	if not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
+	   not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to then
+		minetest.chat_send_player(placer:get_player_name(), "Not enough room")
+		return
 	end
 
 	local player_name = placer:get_player_name()

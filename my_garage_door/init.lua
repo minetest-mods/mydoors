@@ -28,13 +28,15 @@ minetest.register_node("my_garage_door:garage_door", {
 	local p = pointed_thing.above
 	local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 print(p2)
+	
+	if not placer or not placer:is_player() then
+		return
+	end
 
-	if
-	not minetest.registered_nodes[minetest.get_node(p).name].buildable_to or
-	not minetest.registered_nodes[minetest.get_node({x=p.x,y=p.y+1,z=p.z}).name].buildable_to or
-	not placer or
-	not placer:is_player() then
-	return
+	if not minetest.registered_nodes[minetest.get_node(p).name].buildable_to or
+	   not minetest.registered_nodes[minetest.get_node({x=p.x,y=p.y+1,z=p.z}).name].buildable_to then
+		minetest.chat_send_player(placer:get_player_name(), "Not enough room")
+		return
 	end
 
 		local player_name = placer:get_player_name()
@@ -70,12 +72,14 @@ print(p2)
 		t1 = {x=pos.x-1,y=pos.y+1,z=pos.z}
 		t2 = {x=pos.x-2,y=pos.y+1,z=pos.z}
 		end
+	
+		if not player or not player:is_player() then
+			return
+		end
 
-		if
-		not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
-		not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to or
-		not player or
-		not player:is_player() then
+		if not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
+		   not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to then
+			minetest.chat_send_player(player:get_player_name(), "Not enough room to open")
 			return
 		end
 
@@ -163,12 +167,14 @@ minetest.register_node("my_garage_door:garage_door_open", {
 		t2 = {x=pos.x+1,y=pos.y-1,z=pos.z}
 		t3 = {x=pos.x-1,y=pos.y,z=pos.z}
 		end
+	
+		if not player or not player:is_player() then
+			return
+		end
 
-		if
-		not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
-		not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to or
-		not player or
-		not player:is_player() then
+		if not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
+		   not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to then
+			minetest.chat_send_player(player:get_player_name(), "Not enough room to close")
 			return
 		end
 

@@ -14,10 +14,14 @@ local num = doors[i][5]
 function onplace(itemstack, placer, pointed_thing)
 	local pos1 = pointed_thing.above
 	local pos2 = {x=pos1.x, y=pos1.y + 1, z=pos1.z}
-	if
-			not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
-			not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to or
-			not placer or not placer:is_player() then
+	
+	if not placer or not placer:is_player() then
+		return
+	end
+
+	if not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
+	   not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to then
+		minetest.chat_send_player(placer:get_player_name(), "Not enough room")
 		return
 	end
 
