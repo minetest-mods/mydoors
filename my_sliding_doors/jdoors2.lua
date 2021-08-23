@@ -35,6 +35,21 @@ function onplace(itemstack, placer, pointed_thing)
 	elseif p2 == 3 then
 		pt3.z = pt3.z-1
 	end
+
+	local player_name = placer:get_player_name()
+	if minetest.is_protected(pt, player_name) then
+		minetest.record_protection_violation(pt2, player_name)
+		return
+	end
+	if minetest.is_protected(pt2, player_name) then
+		minetest.record_protection_violation(pt2, player_name)
+		return
+	end
+	if minetest.is_protected(pt3, player_name) then
+		minetest.record_protection_violation(pt3, player_name)
+		return
+	end
+
 	if minetest.get_node(pt3).name ~= "air" then
 		minetest.chat_send_player(placer:get_player_name(),"Not enough room")
 		return

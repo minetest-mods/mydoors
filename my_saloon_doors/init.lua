@@ -53,6 +53,17 @@ on_place = function(itemstack, placer, pointed_thing)
 	not placer:is_player() then
 	return
 	end
+
+	local player_name = placer:get_player_name()
+	if minetest.is_protected(pos1, player_name) then
+		minetest.record_protection_violation(pos1, player_name)
+		return
+	end
+	if minetest.is_protected(pos2, player_name) then
+		minetest.record_protection_violation(pos2, player_name)
+		return
+	end
+
         return minetest.item_place(itemstack, placer, pointed_thing)
 end,
 on_rightclick = function(pos, node, player, itemstack, pointed_thing)

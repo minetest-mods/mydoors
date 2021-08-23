@@ -28,6 +28,24 @@ minetest.register_node("my_garage_door:garage_door", {
 	local p = pointed_thing.above
 	local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 print(p2)
+
+	if
+	not minetest.registered_nodes[minetest.get_node(p).name].buildable_to or
+	not minetest.registered_nodes[minetest.get_node({x=p.x,y=p.y+1,z=p.z}).name].buildable_to or
+	not placer or
+	not placer:is_player() then
+	return
+	end
+
+		local player_name = placer:get_player_name()
+		if minetest.is_protected(p, player_name) then
+			minetest.record_protection_violation(p, player_name)
+			return
+		end
+		if minetest.is_protected({x=p.x,y=p.y+1,z=p.z}, player_name) then
+			minetest.record_protection_violation({x=p.x,y=p.y+1,z=p.z}, player_name)
+			return
+		end
 		minetest.set_node(p, {name = "my_garage_door:garage_door",param2 = p2})
 		minetest.set_node({x=p.x,y=p.y+1,z=p.z}, {name = "my_garage_door:garage_door_top",param2 = p2})
 	end,

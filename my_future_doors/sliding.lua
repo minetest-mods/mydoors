@@ -70,6 +70,17 @@ local function onplace(itemstack, placer, pointed_thing)
 				pt3.z = pt3.z-1
 				p4 = 1
 			end
+
+		local player_name = placer:get_player_name()
+		if minetest.is_protected(pt, player_name) then
+			minetest.record_protection_violation(pt, player_name)
+			return
+		end
+		if minetest.is_protected(pt2, player_name) then
+			minetest.record_protection_violation(pt2, player_name)
+			return
+		end
+
 			if minetest.get_node(pt3).name == doora then
 				minetest.set_node(pt, {name=doora, param2=p4})
 				minetest.set_node(pt2, {name=doorb, param2=p4})
