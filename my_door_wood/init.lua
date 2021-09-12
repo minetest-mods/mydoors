@@ -43,7 +43,6 @@ local function add_door(color, desc, img)
 		paramtype = "light",
 		groups = {cracky = 2, choppy = 2},
 		sounds = default.node_sound_wood_defaults(),
-
 	})
 
 	-- Crafts
