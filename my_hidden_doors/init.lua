@@ -18,6 +18,19 @@ local function add_door(img, desc)
 		only_placer_can_open = false,
 		tiles = {{ name = "mydoors_"..img..".png", backface_culling = true }},
 		protected = false,
+		mesecons = {
+			effector = {
+				action_on = function(pos, node)
+					local door = doors.get(pos)
+					if door then door:open() end
+				end,
+				action_off = function(pos, node)
+					local door = doors.get(pos)
+					if door then door:close() end
+				end,
+				rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
+			}
+		},
 	})
 end
 
@@ -32,6 +45,19 @@ doors.register_door("my_hidden_doors:hidden_door_grey", {
 	groups = {choppy=2,cracky=2,door=1},
 	tiles = {{ name = "mydoors_grey.png", backface_culling = true }},
 	protected = false,
+	mesecons = {
+		effector = {
+			action_on = function(pos, node)
+				local door = doors.get(pos)
+				if door then door:open() end
+			end,
+			action_off = function(pos, node)
+				local door = doors.get(pos)
+				if door then door:close() end
+			end,
+			rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
+		}
+	},
 })
 
 
