@@ -61,6 +61,7 @@ for _,door in ipairs(door_wood) do
 end
 
 mydoors = {}
+has_mesecons = minetest.global_exists("mesecon")
 
 local mesecons = {effector = {
 	action_on = function(pos)
@@ -75,11 +76,13 @@ local mesecons = {effector = {
 			door:close()
 		end
 	end,
-	rules = mesecon.rules.pplate
+	rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
 }}
 
 -- Helper function for mesecons support
 function mydoors.register_door(name, def)
-	def.mesecons = mesecons
+	if has_mesecons then
+		def.mesecons = mesecons
+	end
 	doors.register(name, def)
 end
