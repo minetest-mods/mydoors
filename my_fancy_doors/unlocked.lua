@@ -10,25 +10,12 @@ local fdoor_list = {   --Number , Description , Inven Image , Image
 }
 
 local function add_door(desc, img)
-	doors.register_door("my_fancy_doors:"..img, {
+	mydoors.register_door("my_fancy_doors:"..img, {
 		description = desc,
 		inventory_image = "myfdoors_"..img.."_inv.png",
 		groups = {choppy=2,cracky=2,door=1},
 		tiles = {{ name = "myfdoors_"..img..".png", backface_culling = true }},
 		protected = false,
-		mesecons = {
-			effector = {
-				action_on = function(pos, node)
-					local door = doors.get(pos)
-					if door then door:open() end
-				end,
-				action_off = function(pos, node)
-					local door = doors.get(pos)
-					if door then door:close() end
-				end,
-				rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
-			}
-		},
 	})
 end
 

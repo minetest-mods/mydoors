@@ -11,26 +11,13 @@ local hdoor_list = {   --Number , Description , default image
 }
 
 local function add_door(img, desc)
-	doors.register_door("my_hidden_doors:hidden_door"..img, {
+	mydoors.register_door("my_hidden_doors:hidden_door"..img, {
 		description = desc.." Locked",
 		inventory_image = "mydoors_"..img.."_inv.png",
 		groups = {choppy=2,cracky=2,door=1},
 		only_placer_can_open = false,
 		tiles = {{ name = "mydoors_"..img..".png", backface_culling = true }},
 		protected = false,
-		mesecons = {
-			effector = {
-				action_on = function(pos, node)
-					local door = doors.get(pos)
-					if door then door:open() end
-				end,
-				action_off = function(pos, node)
-					local door = doors.get(pos)
-					if door then door:close() end
-				end,
-				rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
-			}
-		},
 	})
 end
 
@@ -39,25 +26,12 @@ for _,hdoor in ipairs(hdoor_list) do
 	add_door(unpack(hdoor))
 end
 
-doors.register_door("my_hidden_doors:hidden_door_grey", {
+mydoors.register_door("my_hidden_doors:hidden_door_grey", {
 	description = "Grey Door Locked",
 	inventory_image = "mydoors_grey_inv.png",
 	groups = {choppy=2,cracky=2,door=1},
 	tiles = {{ name = "mydoors_grey.png", backface_culling = true }},
 	protected = false,
-	mesecons = {
-		effector = {
-			action_on = function(pos, node)
-				local door = doors.get(pos)
-				if door then door:open() end
-			end,
-			action_off = function(pos, node)
-				local door = doors.get(pos)
-				if door then door:close() end
-			end,
-			rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
-		}
-	},
 })
 
 

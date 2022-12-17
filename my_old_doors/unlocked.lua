@@ -6,25 +6,12 @@ local cdoor_list = {   --Number , Description , Inven Image , Image
 }
 
 local function add_door(num, desc, img)
-	doors.register_door("my_old_doors:door"..num, {
+	mydoors.register_door("my_old_doors:door"..num, {
 		description = desc,
 		inventory_image = "mydoors_"..img.."_inv.png",
 		groups = {choppy=2,cracky=2,door=1},
 		tiles = {{ name = "mydoors_"..img..".png", backface_culling = true }},
 		protected = true,
-		mesecons = {
-			effector = {
-				action_on = function(pos, node)
-					local door = doors.get(pos)
-					if door then door:open() end
-				end,
-				action_off = function(pos, node)
-					local door = doors.get(pos)
-					if door then door:close() end
-				end,
-				rules = minetest.global_exists("mesecon") and mesecon.rules.pplate or nil
-			}
-		},
 	})
 end
 

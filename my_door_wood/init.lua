@@ -59,3 +59,28 @@ end
 for _,door in ipairs(door_wood) do
 	add_door(unpack(door))
 end
+
+mydoors = {}
+
+local mesecons = {effector = {
+	action_on = function(pos)
+		local door = doors.get(pos)
+		if door then
+			door:open()
+		end
+	end,
+	action_off = function(pos)
+		local door = doors.get(pos)
+		if door then
+			door:close()
+		end
+	end,
+	rules = mesecon.rules.pplate
+}}
+
+-- Helper function for mesecons support
+function mydoors.register_door(name, def)
+	def.mesecons = mesecons
+	print(dump(def))
+	doors.register(name, def)
+end
