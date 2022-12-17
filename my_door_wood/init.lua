@@ -81,6 +81,5 @@ local mesecons = {effector = {
 -- Helper function for mesecons support
 function mydoors.register_door(name, def)
 	def.mesecons = mesecons
-	print(dump(def))
 	doors.register(name, def)
 end
