@@ -61,7 +61,7 @@ for _,door in ipairs(door_wood) do
 end
 
 mydoors = {}
-has_mesecons = minetest.global_exists("mesecon")
+local has_mesecons = minetest.global_exists("mesecon")
 
 local mesecons = {effector = {
 	action_on = function(pos)
