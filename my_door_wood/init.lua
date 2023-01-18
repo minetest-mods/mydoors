@@ -41,7 +41,7 @@ local function add_door(color, desc, img)
 		paramtype = "light",
 		tiles = {"mydoors_"..img.."_wood.png"},
 		paramtype = "light",
-		groups = {cracky = 2, choppy = 2},
+		groups = {cracky = 2, choppy = 2, wood = 1},
 		sounds = default.node_sound_wood_defaults(),
 	})
 
