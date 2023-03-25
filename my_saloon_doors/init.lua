@@ -1,21 +1,21 @@
 local doorcol = {
-	{"white",	"White",	"^[colorize:white:120"},
-	{"red",		"Red",		"^[colorize:red:120"},
-	{"black",	"Black",	"^[colorize:black:220"},
-	{"brown",	"Brown",	"^[colorize:black:180"},
-	{"grey",	"Grey",		"^[colorize:white:120^[colorize:black:120"},
-	{"dark_grey",	"Dark grey",	"^[colorize:white:120^[colorize:black:200"},
-	{"yellow",	"Yellow",	"^[colorize:yellow:100"},
+	{"white",	"White",	"^[colorize:white:120", "my_door_wood:wood_white"},
+	{"red",		"Red",		"^[colorize:red:120", "my_door_wood:wood_red"},
+	{"black",	"Black",	"^[colorize:black:220", "my_door_wood:wood_black"},
+	{"brown",	"Brown",	"^[colorize:black:180", "my_door_wood:wood_brown"},
+	{"grey",	"Grey",		"^[colorize:white:120^[colorize:black:120", "my_door_wood:wood_grey"},
+	{"dark_grey",	"Dark grey",	"^[colorize:white:120^[colorize:black:200", "my_door_wood:wood_dark_grey"},
+	{"yellow",	"Yellow",	"^[colorize:yellow:100", "my_door_wood:wood_yellow"},
 }
 
-local function add_door(col, des, tint)
+local function add_door(col, des, tint, craft)
 	minetest.register_node("my_saloon_doors:door1a_"..col, {
 		description = des.." Saloon Door ",
 		tiles = {"mydoors_saloon_bottom.png"..tint},
 		drawtype = "nodebox",
 		paramtype = "light",
 		paramtype2 = "facedir",
-		groups = {cracky = 3},
+		groups = {choppy = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -84,7 +84,7 @@ local function add_door(col, des, tint)
 		drawtype = "nodebox",
 		paramtype = "light",
 		paramtype2 = "facedir",
-		groups = {cracky = 1},
+		groups = {choppy = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -111,6 +111,14 @@ local function add_door(col, des, tint)
 			minetest.set_node(pos, {name="my_saloon_doors:door1a_"..col, param2=node.param2})
 			-- minetest.set_node(vector.add(pos, {x=0,y=1,z=0}),{name="my_saloon_doors:door1b_"..col,param2=node.param2})
 		end,
+	})
+	minetest.register_craft({
+		output = "my_saloon_doors:door1a_"..col,
+		recipe = {
+			{"", "", ""},
+			{craft, "", craft},
+			{craft, craft, craft}
+		}
 	})
 end
 
