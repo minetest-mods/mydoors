@@ -84,10 +84,10 @@ minetest.register_craft({
 	}
 })
 minetest.register_craft({
-	output = "my_fancy_doors:door7_locked 1",
+	output = "my_fancy_doors:door8_locked 1",
 	recipe = {
 		{"default:glass", "my_door_wood:wood_red", ""},
-		{"default:glass", "my_door_wood:wood_red", "default:steel_ingot"},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", "default:steel_ingot"},
 		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""}
 	}
 })

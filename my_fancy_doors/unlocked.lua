@@ -59,3 +59,35 @@ minetest.register_craft({
 		{"my_door_wood:wood_red", "my_door_wood:wood_dark_grey", ""}
 	}
 })
+minetest.register_craft({
+	output = "my_fancy_doors:door5 1",
+	recipe = {
+		{"default:glass", "my_door_wood:wood_yellow", ""},
+		{"my_door_wood:wood_yellow", "default:glass", ""},
+		{"my_door_wood:wood_yellow", "my_door_wood:wood_yellow", ""}
+	}
+})
+minetest.register_craft({
+	output = "my_fancy_doors:door6 1",
+	recipe = {
+		{"default:glass", "my_door_wood:wood_red", ""},
+		{"my_door_wood:wood_red", "default:glass", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""}
+	}
+})
+minetest.register_craft({
+	output = "my_fancy_doors:door7 1",
+	recipe = {
+		{"my_door_wood:wood_red", "default:glass", ""},
+		{"my_door_wood:wood_red", "default:glass", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""}
+	}
+})
+minetest.register_craft({
+	output = "my_fancy_doors:door8 1",
+	recipe = {
+		{"default:glass", "my_door_wood:wood_red", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""},
+		{"my_door_wood:wood_red", "my_door_wood:wood_red", ""}
+	}
+})
