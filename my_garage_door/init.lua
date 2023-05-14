@@ -1,3 +1,10 @@
+local function buildable_to(pos)
+	local node = minetest.get_node(pos).name
+	if minetest.registered_nodes[node] then -- The checked node is maybe an unknown node
+		return minetest.registered_nodes[node].buildable_to
+	end
+	return false
+end
 
 minetest.register_node("my_garage_door:garage_door", {
 	description = "Garage Door",
@@ -32,8 +39,8 @@ minetest.register_node("my_garage_door:garage_door", {
 			return
 		end
 
-		if not minetest.registered_nodes[minetest.get_node(pos1).name].buildable_to or
-		   not minetest.registered_nodes[minetest.get_node(pos2).name].buildable_to then
+		if not buildable_to(pos1) or
+		   not buildable_to(pos2) then
 			minetest.chat_send_player(placer:get_player_name(), "Not enough room")
 			return
 		end
@@ -73,8 +80,8 @@ minetest.register_node("my_garage_door:garage_door", {
 			return
 		end
 
-		if not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
-		   not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to then
+		if buildable_to(t1) or
+		   not buildable_to(t2) then
 			minetest.chat_send_player(player:get_player_name(), "Not enough room to open")
 			return
 		end
@@ -151,8 +158,8 @@ minetest.register_node("my_garage_door:garage_door_open", {
 			return
 		end
 
-		if not minetest.registered_nodes[minetest.get_node(t1).name].buildable_to or
-		   not minetest.registered_nodes[minetest.get_node(t2).name].buildable_to then
+		if not buildable_to(t1) or
+		   not buildable_to(t2) then
 			minetest.chat_send_player(player:get_player_name(), "Not enough room to close")
 			return
 		end
