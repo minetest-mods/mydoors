@@ -80,7 +80,7 @@ minetest.register_node("my_garage_door:garage_door", {
 			return
 		end
 
-		if buildable_to(t1) or
+		if not buildable_to(t1) or
 		   not buildable_to(t2) then
 			minetest.chat_send_player(player:get_player_name(), "Not enough room to open")
 			return
@@ -206,3 +206,15 @@ minetest.register_node("my_garage_door:garage_door_open2", {
 	selection_box = {type = "fixed",fixed = {{0, 0, 0, 0, 0, 0},}},
 
 })
+
+-- craft
+if minetest.get_modpath("basic_materials") then
+	minetest.register_craft({
+		output = "my_garage_door:garage_door",
+		recipe = {
+			{"basic_materials:steel_bar", "", "basic_materials:steel_bar"},
+			{"basic_materials:plastic_sheet", "basic_materials:plastic_sheet", "basic_materials:plastic_sheet"},
+			{"basic_materials:plastic_sheet", "basic_materials:plastic_sheet", "basic_materials:plastic_sheet"}
+		}
+	})
+end
