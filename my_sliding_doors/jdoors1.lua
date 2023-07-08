@@ -469,3 +469,75 @@ end
 for _,door in ipairs(doors) do
 	add_door(unpack(door))
 end
+
+-- jpanel
+minetest.register_craft({
+	output = "my_sliding_doors:jpanel1",
+	recipe = {
+		{"group:stick", "default:paper", ""},
+		{"group:stick", "default:paper", ""},
+		{"group:stick", "default:paper", ""}
+	}
+})
+
+minetest.register_craft({
+	output = "my_sliding_doors:jpanel2",
+	recipe = {
+		{"group:stick", "default:paper", ""},
+		{"group:stick", "default:paper", "flowers:rose"},
+		{"group:stick", "default:paper", ""}
+	}
+})
+
+minetest.register_craft({
+	output = "my_sliding_doors:jpanel3",
+	recipe = {
+		{"group:stick", "default:paper", ""},
+		{"group:stick", "default:paper", "group:stick"},
+		{"group:stick", "default:paper", ""}
+	}
+})
+
+-- jpanel_corner
+minetest.register_craft({
+	output = "my_sliding_doors:jpanel_corner_1",
+	recipe = {
+		{"my_sliding_doors:jpanel1"}
+	}
+})
+
+minetest.register_craft({
+	output = "my_sliding_doors:jpanel_corner_2",
+	recipe = {
+		{"my_sliding_doors:jpanel2"}
+	}
+})
+
+minetest.register_craft({
+	output = "my_sliding_doors:jpanel_corner_3",
+	recipe = {
+		{"my_sliding_doors:jpanel3"}
+	}
+})
+
+-- double door
+minetest.register_craft({
+	output = "my_sliding_doors:door1a",
+	recipe = {
+		{"my_sliding_doors:jpanel1", "my_sliding_doors:jpanel1"}
+	}
+})
+
+minetest.register_craft({
+	output = "my_sliding_doors:door2a",
+	recipe = {
+		{"my_sliding_doors:jpanel2", "my_sliding_doors:jpanel2"}
+	}
+})
+
+minetest.register_craft({
+	output = "my_sliding_doors:door3a",
+	recipe = {
+		{"my_sliding_doors:jpanel3", "my_sliding_doors:jpanel3"}
+	}
+})
