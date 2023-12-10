@@ -7,8 +7,8 @@ local doors = {
 local function add_door(doora, doorb, doorc, doord, num)
 	local function onplace(itemstack, placer, pointed_thing)
 		local pos1 = pointed_thing.above
-		local pos2 = vector.add(pos, {x=0,y=1,z=0})
-	
+		local pos2 = vector.add(pos1, {x=0,y=1,z=0})
+
 		if not placer or not placer:is_player() then
 			return
 		end
@@ -20,7 +20,6 @@ local function add_door(doora, doorb, doorc, doord, num)
 		end
 
 		local p2 = minetest.dir_to_facedir(placer:get_look_dir())
-		local p4 = (p2+2)%4
 		local pos3 = vector.add(pos1, minetest.facedir_to_dir((p2-1)%4))
 
 		local player_name = placer:get_player_name()
@@ -110,7 +109,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 		paramtype2 = "facedir",
 		drop = doora,
 		sunlight_propagates = true,
-		groups = {cracky = 3},
+		groups = {choppy = 3, cracky = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -154,7 +153,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 1},
+		groups = {choppy = 1, cracky = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -192,7 +191,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
 		drop = doora,
-		groups = {cracky = 1},
+		groups = {choppy = 1, cracky = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -232,7 +231,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 1},
+		groups = {choppy = 1, cracky = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
