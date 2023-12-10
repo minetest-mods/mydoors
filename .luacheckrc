@@ -1,20 +1,16 @@
 unused_args = false
-allow_defined_top = true
+max_line_length = 140
 
 read_globals = {
-	"doors",
-	"DIR_DELIM",
-	"minetest", "core",
-	"dump",
-	"vector", "nodeupdate",
-	"VoxelManip", "VoxelArea",
-	"PseudoRandom", "ItemStack",
-	"intllib",
+	"minetest",
+	"vector",
 	"default",
-	"armor",
+	"doors",
+	"stairs",
+	"stairsplus",
+	"mesecon",
 }
 
 globals = {
-	core = { fields = { "do_item_eat" }},
+	"mydoors"
 }
-

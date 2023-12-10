@@ -34,7 +34,7 @@ minetest.register_node("my_garage_door:garage_door", {
 	on_place = function(itemstack, placer, pointed_thing)
 		local pos1 = pointed_thing.above
 		local pos2 = vector.add(pos1, {x=0,y=1,z=0})
-	
+
 		if not placer or not placer:is_player() then
 			return
 		end
@@ -75,7 +75,7 @@ minetest.register_node("my_garage_door:garage_door", {
 
 		local t1 = vector.add(above, dir)
 		local t2 = vector.add(t1, dir)
-	
+
 		if not player or not player:is_player() then
 			return
 		end
@@ -153,7 +153,7 @@ minetest.register_node("my_garage_door:garage_door_open", {
 
 		local t1 = vector.add(pos, dir)
 		local t2 = vector.subtract(t1, {x=0,y=1,z=0})
-	
+
 		if not player or not player:is_player() then
 			return
 		end
