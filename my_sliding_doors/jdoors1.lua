@@ -12,7 +12,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		local par = minetest.dir_to_facedir(placer:get_look_dir())
 		local par2 = par + 2
 		local above = vector.add(pos, {x=0,y=1,z=0})
-	
+
 		if not placer or not placer:is_player() then
 			return
 		end
@@ -106,7 +106,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 3},
+		groups = {choppy = 3, cracky = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -150,7 +150,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 1},
+		groups = {choppy = 1, cracky = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -188,7 +188,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
 		drop = doora,
-		groups = {cracky = 1},
+		groups = {choppy = 1, cracky = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -228,7 +228,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 1},
+		groups = {choppy = 1, cracky = 1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -268,7 +268,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 3},
+		groups = {choppy = 3, cracky = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -286,7 +286,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 			local pos = pointed_thing.above
 			local pos2 = vector.add(pos, {x=0,y=1,z=0})
 			local na = minetest.get_node(pos2)
-	
+
 			if not placer or not placer:is_player() then
 				return
 			end
@@ -337,7 +337,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
 		drop = "",
-		groups = {cracky = 3},
+		groups = {choppy = 3, cracky = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -370,7 +370,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
-		groups = {cracky = 3},
+		groups = {choppy = 3, cracky = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -394,7 +394,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 			local pos = pointed_thing.above
 			local pos2 = vector.add(pos, {x=0,y=1,z=0})
 			local na = minetest.get_node(pos2)
-	
+
 			if not placer or not placer:is_player() then
 				return
 			end
@@ -445,7 +445,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
 		drop = "",
-		groups = {cracky = 3},
+		groups = {choppy = 3, cracky = 3},
 		node_box = {
 			type = "fixed",
 			fixed = {
