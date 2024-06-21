@@ -6,6 +6,7 @@ read_globals = {
 	"vector",
 	"default",
 	"doors",
+	"screwdriver",
 	"stairs",
 	"stairsplus",
 	"mesecon",

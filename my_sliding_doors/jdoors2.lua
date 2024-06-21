@@ -133,6 +133,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 				{-0.5, -0.5, -0.0625,  0.5, 1.5, -0.1875}
 			}
 		},
+		on_rotate = screwdriver.disallow,
 
 		on_place = onplace,
 
@@ -176,6 +177,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 				{0, 0, 0, 0, 0, 0},
 			}
 		},
+		on_rotate = screwdriver.disallow,
 	})
 	minetest.register_node(doorc.."2", {
 		tiles = {
@@ -214,6 +216,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 				{-1.5, -0.5, 0.0625, -0.5, 1.5, -0.1875}
 			}
 		},
+		on_rotate = screwdriver.disallow,
 		after_place_node = afterplace,
 		after_destruct = afterdestruct,
 		on_rightclick = rightclick,
@@ -254,6 +257,7 @@ local function add_door(doora, doorb, doorc, doord, num)
 				{0, 0, 0, 0, 0, 0},
 			}
 		},
+		on_rotate = screwdriver.disallow,
 	})
 end
 
