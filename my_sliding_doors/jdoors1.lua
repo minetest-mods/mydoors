@@ -395,7 +395,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{-0.5,    -0.5, -0.0625, 0,      1.5, 0.0625},
 			}
 		},
-		on_rotate = screwdriver.rotate_simple,
+		on_rotate = screwdriver.disallow,
 		on_place = function(itemstack, placer, pointed_thing)
 			local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 			local pos = pointed_thing.above
