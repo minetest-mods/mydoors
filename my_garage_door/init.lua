@@ -31,6 +31,7 @@ minetest.register_node("my_garage_door:garage_door", {
 			{-1.5, -0.5, -0.1875, 1.5, 1.5, -0.0625},
 		}
 	},
+	on_rotate = screwdriver.disallow,
 	on_place = function(itemstack, placer, pointed_thing)
 		local pos1 = pointed_thing.above
 		local pos2 = vector.add(pos1, {x=0,y=1,z=0})
@@ -124,6 +125,7 @@ minetest.register_node("my_garage_door:garage_door_top", {
 		}
 	},
 	selection_box = {type = "fixed",fixed = {{0, 0, 0, 0, 0, 0},}},
+	on_rotate = screwdriver.disallow,
 })
 minetest.register_node("my_garage_door:garage_door_open", {
 	tiles = {
@@ -146,7 +148,7 @@ minetest.register_node("my_garage_door:garage_door_open", {
 		}
 	},
 	selection_box = {type = "fixed",fixed = {{-1.5, 0.375, -0.5, 1.5, 0.5, 1.5},}},
-
+	on_rotate = screwdriver.disallow,
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		local p2 = node.param2
 		local dir = minetest.facedir_to_dir((p2+2)%4)
@@ -204,7 +206,7 @@ minetest.register_node("my_garage_door:garage_door_open2", {
 		}
 	},
 	selection_box = {type = "fixed",fixed = {{0, 0, 0, 0, 0, 0},}},
-
+	on_rotate = screwdriver.disallow,
 })
 
 -- craft
