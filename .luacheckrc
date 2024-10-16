@@ -9,9 +9,4 @@ read_globals = {
 	"screwdriver",
 	"stairs",
 	"stairsplus",
-	"mesecon",
-}
-
-globals = {
-	"mydoors"
 }
