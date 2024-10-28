@@ -1,3 +1,5 @@
+local rotate_simple = rawget(_G, "screwdriver") and screwdriver.rotate_simple or nil
+
 local doorcol = {
 	{"white",	"White",	"^[colorize:white:120", "my_door_wood:wood_white"},
 	{"red",		"Red",		"^[colorize:red:120", "my_door_wood:wood_red"},
@@ -37,7 +39,7 @@ local function add_door(col, des, tint, craft)
 				{-0.5, -0.1875, -0.0625, 0.5, 1, 0.0625},
 			}
 		},
-		on_rotate = screwdriver.rotate_simple,
+		on_rotate = rotate_simple,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			local pos1 = pointed_thing.above
@@ -107,7 +109,7 @@ local function add_door(col, des, tint, craft)
 				{0, 0, 0, 0, 0, 0},
 			}
 		},
-		on_rotate = screwdriver.rotate_simple,
+		on_rotate = rotate_simple,
 		on_timer = function(pos, elapsed)
 			local node = minetest.get_node(pos)
 			minetest.set_node(pos, {name="my_saloon_doors:door1a_"..col, param2=node.param2})

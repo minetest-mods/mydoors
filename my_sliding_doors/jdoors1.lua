@@ -1,3 +1,5 @@
+local rotate_disallow = rawget(_G, "screwdriver") and screwdriver.disallow or nil
+
 local doors = {
 	{"my_sliding_doors:door1a","my_sliding_doors:door1b","my_sliding_doors:door1c","my_sliding_doors:door1d","1","White"},
 	{"my_sliding_doors:door2a","my_sliding_doors:door2b","my_sliding_doors:door2c","my_sliding_doors:door2d","2","Flower"},
@@ -130,12 +132,9 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{-0.5, -0.5,  0.0625,  0.5, 1.5, 0.1875}
 			}
 		},
-		on_rotate = screwdriver.disallow,
-
+		on_rotate = rotate_disallow,
 		on_place = onplace,
-
 		after_destruct = afterdestruct,
-
 		on_rightclick = rightclick,
 	})
 	minetest.register_node(doorb, {
@@ -174,7 +173,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{0, 0, 0, 0, 0, 0},
 			}
 		},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 	})
 	minetest.register_node(doorc, {
 		tiles = {
@@ -213,7 +212,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{-1.5, -0.5, -0.0625, -0.5, 1.5, 0.1875}
 			}
 		},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 		after_place_node = afterplace,
 		after_destruct = afterdestruct,
 		on_rightclick = rightclick,
@@ -254,7 +253,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{0, 0, 0, 0, 0, 0},
 			}
 		},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 	})
 	minetest.register_node("my_sliding_doors:jpanel"..num, {
 		description = des.." Panel",
@@ -284,7 +283,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 		},
 		selection_box = {type = "fixed", fixed = {{-0.5, -0.5, -0.0625, 0.5, 1.5, 0.0625}}},
 		collision_box = {type = "fixed", fixed = {{-0.5, -0.5, -0.0625, 0.5, 1.5, 0.0625}}},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			local p2 = minetest.dir_to_facedir(placer:get_look_dir())
@@ -358,7 +357,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{0, 0, 0, 0, 0, 0}
 			}
 		},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 	})
 	minetest.register_node("my_sliding_doors:jpanel_corner_"..num, {
 		description = des.." Panel Corner",
@@ -395,7 +394,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{-0.5,    -0.5, -0.0625, 0,      1.5, 0.0625},
 			}
 		},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 		on_place = function(itemstack, placer, pointed_thing)
 			local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 			local pos = pointed_thing.above
@@ -470,7 +469,7 @@ local function add_door(doora, doorb, doorc, doord, num, des)
 				{0, 0, 0, 0, 0, 0}
 			}
 		},
-		on_rotate = screwdriver.disallow,
+		on_rotate = rotate_disallow,
 	})
 end
 
