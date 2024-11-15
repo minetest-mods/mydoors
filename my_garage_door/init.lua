@@ -1,3 +1,5 @@
+local rotate_disallow = rawget(_G, "screwdriver") and screwdriver.disallow or nil
+
 local function buildable_to(pos)
 	local node = minetest.get_node(pos).name
 	if minetest.registered_nodes[node] then -- The checked node is maybe an unknown node
@@ -5,6 +7,17 @@ local function buildable_to(pos)
 	end
 	return false
 end
+
+local nodebox_closed = {
+	type = "fixed",
+	fixed = {
+		{-1.5, -0.5,  -0.125,  1.5,  0.5,       -0.0625},
+		{-1.5, -0.5,  -0.1875, 1.5, -0.3125,    -0.0625},
+		{-1.5, -0.25, -0.1875, 1.5, -0.0624999, -0.0625},
+		{-1.5,  0,    -0.1875, 1.5,  0.1875,    -0.0625},
+		{-1.5,  0.25, -0.1875, 1.5,  0.4375,    -0.0625},
+	}
+}
 
 minetest.register_node("my_garage_door:garage_door", {
 	description = "Garage Door",
@@ -15,23 +28,14 @@ minetest.register_node("my_garage_door:garage_door", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {cracky=3},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-1.5, -0.5,  -0.125,  1.5,  0.5,       -0.0625},
-			{-1.5, -0.5,  -0.1875, 1.5, -0.3125,    -0.0625},
-			{-1.5, -0.25, -0.1875, 1.5, -0.0624999, -0.0625},
-			{-1.5,  0,    -0.1875, 1.5,  0.1875,    -0.0625},
-			{-1.5,  0.25, -0.1875, 1.5,  0.4375,    -0.0625},
-		}
-	},
+	node_box = table.copy(nodebox_closed),
 	selection_box = {
 		type = "fixed",
 		fixed = {
 			{-1.5, -0.5, -0.1875, 1.5, 1.5, -0.0625},
 		}
 	},
-	on_rotate = screwdriver.disallow,
+	on_rotate = rotate_disallow,
 	on_place = function(itemstack, placer, pointed_thing)
 		local pos1 = pointed_thing.above
 		local pos2 = vector.add(pos1, {x=0,y=1,z=0})
@@ -114,19 +118,22 @@ minetest.register_node("my_garage_door:garage_door_top", {
 	diggable = false,
 	pointable = false,
 	groups = {cracky=3},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-1.5, -0.5,  -0.125,  1.5,  0.5,       -0.0625},
-			{-1.5, -0.5,  -0.1875, 1.5, -0.3125,    -0.0625},
-			{-1.5, -0.25, -0.1875, 1.5, -0.0624999, -0.0625},
-			{-1.5,  0,    -0.1875, 1.5,  0.1875,    -0.0625},
-			{-1.5,  0.25, -0.1875, 1.5,  0.4375,    -0.0625},
-		}
-	},
+	node_box = table.copy(nodebox_closed),
 	selection_box = {type = "fixed",fixed = {{0, 0, 0, 0, 0, 0},}},
-	on_rotate = screwdriver.disallow,
+	on_rotate = rotate_disallow,
 })
+
+local nodebox_open = {
+	type = "fixed",
+	fixed = {
+		{-1.5, 0.4375, -0.5,    1.5, 0.375, 0.5},
+		{-1.5, 0.375,   0.3125, 1.5, 0.5,   0.5},
+		{-1.5, 0.375,   0.0625, 1.5, 0.5,   0.25},
+		{-1.5, 0.375,  -0.1875, 1.5, 0.5,   0},
+		{-1.5, 0.375,  -0.4375, 1.5, 0.5,  -0.25},
+	}
+}
+
 minetest.register_node("my_garage_door:garage_door_open", {
 	tiles = {
 		"default_snow.png"
@@ -137,18 +144,9 @@ minetest.register_node("my_garage_door:garage_door_open", {
 	drop = "my_garage_door:garage_door",
 	diggable = false,
 	groups = {cracky=3},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-1.5, 0.4375, -0.5,    1.5, 0.375, 0.5},
-			{-1.5, 0.375,   0.3125, 1.5, 0.5,   0.5},
-			{-1.5, 0.375,   0.0625, 1.5, 0.5,   0.25},
-			{-1.5, 0.375,  -0.1875, 1.5, 0.5,   0},
-			{-1.5, 0.375,  -0.4375, 1.5, 0.5,  -0.25},
-		}
-	},
+	node_box = table.copy(nodebox_open),
 	selection_box = {type = "fixed",fixed = {{-1.5, 0.375, -0.5, 1.5, 0.5, 1.5},}},
-	on_rotate = screwdriver.disallow,
+	on_rotate = rotate_disallow,
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		local p2 = node.param2
 		local dir = minetest.facedir_to_dir((p2+2)%4)
@@ -195,18 +193,9 @@ minetest.register_node("my_garage_door:garage_door_open2", {
 	diggable = false,
 	pointable = false,
 	groups = {cracky=3},
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-1.5, 0.4375, -0.5,    1.5, 0.375, 0.5},
-			{-1.5, 0.375,   0.3125, 1.5, 0.5,   0.5},
-			{-1.5, 0.375,   0.0625, 1.5, 0.5,   0.25},
-			{-1.5, 0.375,  -0.1875, 1.5, 0.5,   0},
-			{-1.5, 0.375,  -0.4375, 1.5, 0.5,  -0.25},
-		}
-	},
+	node_box = table.copy(nodebox_open),
 	selection_box = {type = "fixed",fixed = {{0, 0, 0, 0, 0, 0},}},
-	on_rotate = screwdriver.disallow,
+	on_rotate = rotate_disallow,
 })
 
 -- craft
